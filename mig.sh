@@ -19,7 +19,7 @@ clear
 echo
 echo -e "${BLUE} ALQO Masternode Migration monitoring script.${NC}"
 echo
-echo -e "${YELLOW} $updated ${BLUE}Masternodes on protocol ${GREEN}70716 ${BLUE}out of ${YELLOW}$total ${BLUE}[${RED}$percent${BLUE$
+echo -e "${YELLOW} $updated ${BLUE}Masternodes on protocol ${GREEN}70716 ${BLUE}out of ${YELLOW}$total ${BLUE}[${RED}$percent${BLUE}]${NC}"
 echo
 echo -e "${BLUE} Current Block Height : ${YELLOW}$blockheight${NC}"
 echo
