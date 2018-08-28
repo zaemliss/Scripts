@@ -11,11 +11,11 @@ echo "getting list..."
 
 while [ 1 ]; do
 nodes=$(~/ALQO/alqo-cli masternode list)
-clear
 updated=$(awk -F"70716" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
 blockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
+clear
 echo
 echo -e "${BLUE} ALQO Masternode Migration monitoring script.${NC}"
 echo
