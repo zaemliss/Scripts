@@ -7,6 +7,7 @@ BLUE='\033[1;36m'
 NC='\033[0m'
 
 clear
+sudo apt install -y bc > /dev/null 2>&1
 echo "getting list..."
 
 while [ 1 ]; do
