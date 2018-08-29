@@ -13,6 +13,7 @@ echo -e "${RED}*   ${GREEN}Version: ${BLUE}1.04                      ${RED}*${NC
 echo -e "${RED}*   ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr    ${RED}*${NC}"
 echo -e "${RED}*   ${GREEN}By: ${BLUE}chris, 2018                    ${RED}*${NC}"
 echo -e "${RED}****************************************${NC}"
+echo
 
 echo -e "${YELLOW} Installing dependencies ..."
 echo -ne "#{GREEN}#${NC}"
