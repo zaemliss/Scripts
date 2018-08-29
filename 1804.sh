@@ -34,15 +34,17 @@ echo -ne "#{YELLOW}#${NC}"
 echo
 
 echo -e "${GREEN} Building Dependencies ...#{NC}"
-echo -e "${RED}this will take about 1-6 hours !${NC} STARTED 6:16"
+echo -e "${RED}this will take about 45 minutes, please be patient !${NC}"
 make -C depends > /dev/null 2>&1
 echo
 
 echo -e "${GREEN} Configuring Environment ...#{NC}"
+echo -e "${RED}this will take about 3 minutes, please be patient !${NC}"
 ./configure --prefix=/root/ALQO/depends/x86_64-pc-linux-gnu > /dev/null 2>&1
 echo
 
 echo -e "${BLUE} Compiling Binaries ...#{NC}"
+echo -e "${RED}this will take about 15 minutes, please be patient !${NC}"
 make > /dev/null 2>&1
 echo -ne "#{YELLOW}#${NC}"
 echo
