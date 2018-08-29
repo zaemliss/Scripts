@@ -26,5 +26,11 @@ echo -e "${BLUE} Current Block Height : ${YELLOW}$blockheight${NC}"
 echo
 echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
 echo
-sleep 25
+echo -e "${BLUE}  ========================="
+echo -ne "  "
+for i in `seq 1 25`;
+    do
+        echo -ne "${GREEN}#${NC}"
+        sleep 1
+    done
 done
