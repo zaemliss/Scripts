@@ -7,7 +7,7 @@ BLUE='\033[1;36m'
 NC='\033[0m'
 
 echo
-echo -e "${YELLOW} Installing dependancies ..."
+echo -e "${YELLOW} Installing dependencies ..."
 echo -ne "#{GREEN}#${NC}"
 sudo apt-get update -y > /dev/null 2>&1
 echo -ne "#{GREEN}#${NC}"
