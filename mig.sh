@@ -33,4 +33,6 @@ for i in `seq 1 25`;
         echo -ne "${GREEN}#${NC}"
         sleep 1
     done
+echo
+echo -e "${YELLOW}  Retrieving new data...${NC}"
 done
