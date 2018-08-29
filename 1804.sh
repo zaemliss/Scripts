@@ -22,6 +22,7 @@ echo -ne "#{GREEN}#${NC}"
 sudo dpkg-reconfigure gcc > /dev/null 2>&1
 echo
 
+ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
 
 echo -e "${GREEN} Getting Project from Git ...#{NC}"
 cd ~
@@ -38,7 +39,7 @@ make -C depends > /dev/null 2>&1
 echo
 
 echo -e "${GREEN} Configuring Environment ...#{NC}"
-./configure --prefix=~/ALQO/depends/x86_64-pc-linux-gnu > /dev/null 2>&1
+./configure --prefix=/root/ALQO/depends/x86_64-pc-linux-gnu > /dev/null 2>&1
 echo
 
 echo -e "${BLUE} Compiling Binaries ...#{NC}"
