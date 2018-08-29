@@ -13,7 +13,7 @@ sudo apt-get update -y > /dev/null 2>&1
 echo -ne "#{GREEN}#${NC}"
 sudo apt-get install -y --reinstall build-essential > /dev/null 2>&1
 echo -ne "#{GREEN}#${NC}"
-sudo apt-get install -y automake autoconf libtool > /dev/null 2>&1
+sudo apt-get install -y automake autoconf libtool perl pkg-config m4 > /dev/null 2>&1
 echo -ne "#{GREEN}#${NC}"
 sudo apt-get install -y --reinstall gcc > /dev/null 2>&1
 echo -ne "#{GREEN}#${NC}"
@@ -33,7 +33,7 @@ echo -ne "#{YELLOW}#${NC}"
 echo
 
 echo -e "${GREEN} Building Dependencies ...#{NC}"
-echo -e "${RED}this will take about 1-6 hours !${NC} STARTED 6:06"
+echo -e "${RED}this will take about 1-6 hours !${NC} STARTED 6:16"
 make -C depends > /dev/null 2>&1
 echo
 
