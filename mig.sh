@@ -36,3 +36,4 @@ for i in `seq 1 25`;
 echo
 echo -e "${YELLOW}  Retrieving new data...${NC}"
 done
+
