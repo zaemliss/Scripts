@@ -54,7 +54,7 @@ function verbose()
   echo -e "${BLUE} Copying Binaries to ~/ALQO ...${NC}"
   cp ~/ALQO/src/alqod ~/ALQO
   cp ~/ALQO/src/alqo-cli ~/ALQO
-  cp ~/ALQO/src/qt/alqod-qt ~/ALQO
+  cp ~/ALQO/src/qt/alqo-qt ~/ALQO
 }
 
 function silent()
@@ -113,7 +113,7 @@ function silent()
   echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO > /dev/null 2>&1
   echo -ne "${YELLOW}#${NC}"
-  cp ~/ALQO/src/qt/alqod-qt ~/ALQO > /dev/null 2>&1
+  cp ~/ALQO/src/qt/alqo-qt ~/ALQO > /dev/null 2>&1
 }
 
 function start()
