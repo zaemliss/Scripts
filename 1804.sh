@@ -31,7 +31,7 @@ function verbose()
   cd ~
   git clone https://github.com/ALQOCRYPTO/ALQO.git
   cd ~/ALQO
-  ./autogen.sh
+  ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
   echo
 
   echo -e "${GREEN} Building Dependencies ...#{NC}"
@@ -84,14 +84,12 @@ function silent()
   echo
   echo -e "/swapfile none swap sw 0 0 \n" >> /etc/fstab > /dev/null 2>&1
   
-  ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
-
   echo -e "${GREEN} Getting Project from Git ...#{NC}"
   cd ~
   git clone https://github.com/ALQOCRYPTO/ALQO.git > /dev/null 2>&1
   echo -ne "#{YELLOW}#${NC}"
   cd ~/ALQO
-  ./autogen.sh > /dev/null 2>&1
+  ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh > /dev/null 2>&1
   echo -ne "#{YELLOW}#${NC}"
   echo
 
