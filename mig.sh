@@ -24,7 +24,7 @@ clear
 echo
 echo -e "${BLUE} ALQO Masternode Migration monitoring script.${NC}"
 echo
-echo -e "${YELLOW} $updated ${BLUE}Masternodes on protocol ${GREEN}70717 ${BLUE}out of ${YELLOW}$total ${BLUE}[${RED}$percent${BLUE}]${NC}"
+echo -e "${YELLOW} $updated ${BLUE}Masternodes on protocol ${GREEN}70717 ${BLUE}out of ${YELLOW}$total ${BLUE}[${RED}$percent %${BLUE}]${NC}"
 echo
 echo -e "${BLUE} Masternodes on protocol ${RED}70716 : ${YELLOW}$old${NC}"
 echo -e "${BLUE} Masternodes on protocol ${RED}70715 : ${YELLOW}$ancient${NC}"
