@@ -9,7 +9,7 @@ NC='\033[0m'
 function verbose()
 {
   echo
-  echo -e "${YELLOW} Installing dependencies ..."
+  echo -e "${YELLOW} Installing dependencies ...${NC}"
   sudo apt-get update -y
   sudo apt-get install -y --reinstall build-essential
   sudo apt-get install -y automake autoconf libtool perl pkg-config m4
@@ -27,53 +27,50 @@ function verbose()
   
   ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
 
-  echo -e "${GREEN} Getting Project from Git ...#{NC}"
+  echo -e "${GREEN} Getting Project from Git ...${NC}"
   cd ~
   git clone https://github.com/ALQOCRYPTO/ALQO.git
   cd ~/ALQO
   ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
   echo
 
-  echo -e "${GREEN} Building Dependencies ...#{NC}"
+  echo -e "${GREEN} Building Dependencies ...${NC}"
   echo -e "${RED}this will take about an hour, please be patient !${NC}"
   make -C depends
   echo
 
-  echo -e "${GREEN} Configuring Environment ...#{NC}"
+  echo -e "${GREEN} Configuring Environment ...${NC}"
   echo -e "${RED}this will take about 5 minutes, please be patient !${NC}"
   ./configure --prefix=/root/ALQO/depends/x86_64-pc-linux-gnu
   echo
 
-  echo -e "${BLUE} Compiling Binaries ...#{NC}"
+  echo -e "${BLUE} Compiling Binaries ...${NC}"
   echo -e "${RED}this will take about an hour, please be patient !${NC}"
   make
-  echo -ne "#{YELLOW}#${NC}"
+  echo -ne "${YELLOW}#${NC}"
   echo
 
-  echo -e "${BLUE} Copying Binaries to ~/ALQO ...#{NC}"
-  echo -ne "#{YELLOW}#${NC}"
+  echo -e "${BLUE} Copying Binaries to ~/ALQO ...${NC}"
   cp ~/ALQO/src/alqod ~/ALQO
-  echo -ne "#{YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO
-  echo -ne "#{YELLOW}#${NC}"
-   ~/ALQO/src/qt/alqod-qt ~/ALQO
+  cp ~/ALQO/src/qt/alqod-qt ~/ALQO
 }
 
 function silent()
 {
   echo
   echo -e "${YELLOW} Installing dependencies ..."
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo apt-get update -y > /dev/null 2>&1
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y --reinstall build-essential > /dev/null 2>&1
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y automake autoconf libtool perl pkg-config m4 > /dev/null 2>&1
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y --reinstall gcc > /dev/null 2>&1
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo dpkg-reconfigure build-essential > /dev/null 2>&1
-  echo -ne "#{GREEN}#${NC}"
+  echo -ne "${GREEN}#${NC}"
   sudo dpkg-reconfigure gcc > /dev/null 2>&1
   echo
   echo -e "${BLUE}Creating Swap... (ignore errors, this might not be supported)${NC}"
@@ -84,38 +81,38 @@ function silent()
   echo
   echo -e "/swapfile none swap sw 0 0 \n" >> /etc/fstab > /dev/null 2>&1
   
-  echo -e "${GREEN} Getting Project from Git ...#{NC}"
+  echo -e "${GREEN} Getting Project from Git ...${NC}"
   cd ~
   git clone https://github.com/ALQOCRYPTO/ALQO.git > /dev/null 2>&1
-  echo -ne "#{YELLOW}#${NC}"
+  echo -ne "${YELLOW}#${NC}"
   cd ~/ALQO
   ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh > /dev/null 2>&1
-  echo -ne "#{YELLOW}#${NC}"
+  echo -ne "${YELLOW}#${NC}"
   echo
 
-  echo -e "${GREEN} Building Dependencies ...#{NC}"
+  echo -e "${GREEN} Building Dependencies ...${NC}"
   echo -e "${RED}this will take about an hour, please be patient !${NC}"
   make -C depends > /dev/null 2>&1
   echo
 
-  echo -e "${GREEN} Configuring Environment ...#{NC}"
+  echo -e "${GREEN} Configuring Environment ...${NC}"
   echo -e "${RED}this will take about 5 minutes, please be patient !${NC}"
   ./configure --prefix=/root/ALQO/depends/x86_64-pc-linux-gnu > /dev/null 2>&1
   echo
 
-  echo -e "${BLUE} Compiling Binaries ...#{NC}"
+  echo -e "${BLUE} Compiling Binaries ...${NC}"
   echo -e "${RED}this will take about an hour, please be patient !${NC}"
   make > /dev/null 2>&1
-  echo -ne "#{YELLOW}#${NC}"
+  echo -ne "${YELLOW}#${NC}"
   echo
 
-  echo -e "${BLUE} Copying Binaries to ~/ALQO ...#{NC}"
-  echo -ne "#{YELLOW}#${NC}"
+  echo -e "${BLUE} Copying Binaries to ~/ALQO ...${NC}"
+  echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/alqod ~/ALQO > /dev/null 2>&1
-  echo -ne "#{YELLOW}#${NC}"
+  echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO > /dev/null 2>&1
-  echo -ne "#{YELLOW}#${NC}"
-   ~/ALQO/src/qt/alqod-qt ~/ALQO > /dev/null 2>&1
+  echo -ne "${YELLOW}#${NC}"
+  cp ~/ALQO/src/qt/alqod-qt ~/ALQO > /dev/null 2>&1
 }
 
 function start()
