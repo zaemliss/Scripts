@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 RED='\033[1;31m'
@@ -17,10 +16,10 @@ nodes=$(~/ALQO/alqo-cli masternode list)
 updated=$(awk -F"70717" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 old=$(awk -F"70716" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 ancient=$(awk -F"70715" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
-
 total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
 apiblockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
+explorerstatus=$(curl -s https://explorer.alqo.org/overview)
 
 clear
 echo
@@ -31,7 +30,7 @@ echo
 echo -e "${BLUE} Masternodes on protocol ${RED}70716 : ${YELLOW}$old${NC}"
 echo -e "${BLUE} Masternodes on protocol ${RED}70715 : ${YELLOW}$ancient${NC}"
 echo
-echo -e "${BLUE} API Current Block Height  : ${YELLOW}$apiblockheight${NC}"
+echo -e "${BLUE} API Current Block Height  : ${YELLOW}$apiblockheight ${GREEN}( $explorerstatus )${NC}"
 echo -e "${BLUE} Local wallet Block Height : ${YELLOW}$curblocks${NC}"
 echo
 echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
@@ -46,4 +45,3 @@ for i in `seq 1 25`;
     echo
     echo -e "${YELLOW}  Retrieving new data...${NC}"
 done
-
