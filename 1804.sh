@@ -6,24 +6,6 @@ YELLOW='\033[1;33m'
 BLUE='\033[1;36m'
 NC='\033[0m'
 
-
-echo
-echo -e "${RED}****************************************${NC}"
-echo -e "${RED}*   ${YELLOW}Ubuntu 18.04 Alqo Compiler Script  ${RED}*${NC}"
-echo -e "${RED}*   ${GREEN}Version: ${BLUE}1.04                      ${RED}*${NC}"
-echo -e "${RED}*   ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr    ${RED}*${NC}"
-echo -e "${RED}*   ${GREEN}By: ${BLUE}chris, 2018                    ${RED}*${NC}"
-echo -e "${RED}****************************************${NC}"
-echo
-echo -e "${BLUE} do you want to see verbose output? ${GREEN}[Y/N]${NC}"
-
-read -e -p " : " CHOICE
-if [[ ("$CHOICE" == "Y" || "$CHOICE" == "y") ]]; then
-  verbose
-else
-  silent
-fi
-
 function verbose()
 {
   echo
@@ -137,3 +119,25 @@ function silent()
   echo -ne "#{YELLOW}#${NC}"
    ~/ALQO/src/alqod-qt ~/ALQO > /dev/null 2>&1
 }
+
+function start()
+{
+echo
+echo -e "${RED}****************************************${NC}"
+echo -e "${RED}*   ${YELLOW}Ubuntu 18.04 Alqo Compiler Script  ${RED}*${NC}"
+echo -e "${RED}*   ${GREEN}Version: ${BLUE}1.04                      ${RED}*${NC}"
+echo -e "${RED}*   ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr    ${RED}*${NC}"
+echo -e "${RED}*   ${GREEN}By: ${BLUE}chris, 2018                    ${RED}*${NC}"
+echo -e "${RED}****************************************${NC}"
+echo
+echo -e "${BLUE} do you want to see verbose output? ${GREEN}[Y/N]${NC}"
+
+read -e -p " : " CHOICE
+if [[ ("$CHOICE" == "Y" || "$CHOICE" == "y") ]]; then
+  verbose
+else
+  silent
+fi
+}
+
+start
