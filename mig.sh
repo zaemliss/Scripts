@@ -12,7 +12,7 @@ sudo apt install -y bc > /dev/null 2>&1
 
 while [ 1 ]; do
 nodes=$(~/ALQO/alqo-cli masternode list)
-updated=$(awk -F"70716" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
+updated=$(awk -F"70717" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
 blockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
