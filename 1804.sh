@@ -10,6 +10,7 @@ function verbose()
 {
   echo
   echo -e "${YELLOW} Installing dependencies ...${NC}"
+  echo
   sudo apt-get update -y
   sudo apt-get install -y --reinstall build-essential
   sudo apt-get install -y automake autoconf libtool perl pkg-config m4
