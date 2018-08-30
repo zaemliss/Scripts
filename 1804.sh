@@ -56,7 +56,7 @@ function verbose()
   echo -ne "#{YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO
   echo -ne "#{YELLOW}#${NC}"
-   ~/ALQO/src/alqod-qt ~/ALQO
+   ~/ALQO/src/qt/alqod-qt ~/ALQO
 }
 
 function silent()
@@ -117,7 +117,7 @@ function silent()
   echo -ne "#{YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO > /dev/null 2>&1
   echo -ne "#{YELLOW}#${NC}"
-   ~/ALQO/src/alqod-qt ~/ALQO > /dev/null 2>&1
+   ~/ALQO/src/qt/alqod-qt ~/ALQO > /dev/null 2>&1
 }
 
 function start()
