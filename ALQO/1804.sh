@@ -126,7 +126,7 @@ echo -e "${RED}*   ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr    ${RED}*${NC
 echo -e "${RED}*   ${GREEN}By: ${BLUE}chris, 2018                    ${RED}*${NC}"
 echo -e "${RED}****************************************${NC}"
 echo
-echo -e "${BLUE} do you want to see verbose output? ${GREEN}[Y/N]${NC}"
+echo -e "${BLUE} do you want to see detailed output? ${GREEN}[Y/N]${NC}"
 
 read -e -p " : " CHOICE
 if [[ ("$CHOICE" == "Y" || "$CHOICE" == "y") ]]; then
