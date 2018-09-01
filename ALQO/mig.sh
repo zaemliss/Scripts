@@ -30,7 +30,11 @@ echo
 echo -e "${BLUE} Masternodes on protocol ${RED}70716 : ${YELLOW}$old${NC}"
 echo -e "${BLUE} Masternodes on protocol ${RED}70715 : ${YELLOW}$ancient${NC}"
 echo
-echo -e "${BLUE} API Current Block Height  : ${YELLOW}$apiblockheight${NC}"
+if [ ${apiblockheight} != ${curblocks} ]; then
+        echo -e "${BLUE} API Current Block Height  : ${RED}$apiblockheight${NC}"
+else
+        echo -e "${BLUE} API Current Block Height  : ${YELLOW}$apiblockheight${NC}"
+fi
 echo -e "${BLUE} Local wallet Block Height : ${YELLOW}$curblocks${NC}"
 echo
 echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
