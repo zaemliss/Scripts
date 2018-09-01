@@ -12,7 +12,7 @@ echo "getting list..."
 
 while [ 1 ]; do
 curblocks=$(~/ALQO/alqo-cli getinfo | grep blocks | awk {'print $2'} | tr -d ",")
-nodes=$(~/ALQO/alqo-cli masternode list)
+nodes=$(~/ALQO/alqo-cli masternode list | grep version)
 updated=$(awk -F"70717" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 old=$(awk -F"70716" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 ancient=$(awk -F"70715" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
