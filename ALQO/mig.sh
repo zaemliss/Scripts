@@ -19,6 +19,7 @@ ancient=$(awk -F"70715" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
 apiblockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
+logresult=$(tail -n 8 ./.alqo/debug.log)
 
 clear
 echo
@@ -33,6 +34,9 @@ echo -e "${BLUE} API Current Block Height  : ${YELLOW}$apiblockheight${NC}"
 echo -e "${BLUE} Local wallet Block Height : ${YELLOW}$curblocks${NC}"
 echo
 echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
+echo
+echo -e "${YELLOW}Log File:${NC}"
+echo -e "${BLUE}$logresult${NC}"
 echo
 echo -e "${BLUE} ========================="
 echo -ne " "
