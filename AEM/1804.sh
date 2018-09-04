@@ -117,12 +117,12 @@ function silent()
 function start()
 {
 echo
-echo -e "${RED}****************************************${NC}"
-echo -e "${RED}* ${YELLOW}Ubuntu 18.04 Atheneum Compiler Script${RED}*${NC}"
-echo -e "${RED}* ${GREEN}Version: ${BLUE}1.04                    ${RED}*${NC}"
-echo -e "${RED}* ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr  ${RED}*${NC}"
-echo -e "${RED}* ${GREEN}By: ${BLUE}chris, 2018                  ${RED}*${NC}"
-echo -e "${RED}****************************************${NC}"
+echo -e "${RED}*****************************************${NC}"
+echo -e "${RED}* ${YELLOW}Ubuntu 18.04 Atheneum Compiler Script${RED} *${NC}"
+echo -e "${RED}* ${GREEN}Version: ${BLUE}1.04                        ${RED}*${NC}"
+echo -e "${RED}* ${GREEN}Supports: ${BLUE}Ubuntu 18.04 on Vultr      ${RED}*${NC}"
+echo -e "${RED}* ${GREEN}By: ${BLUE}chris, 2018                      ${RED}*${NC}"
+echo -e "${RED}*****************************************${NC}"
 echo
 echo -e "${BLUE} do you want to see detailed output? ${GREEN}[Y/N]${NC}"
 
