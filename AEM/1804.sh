@@ -13,7 +13,7 @@ function verbose()
   echo
   sudo apt-get update -y
   sudo apt-get install -y --reinstall build-essential
-  sudo apt-get install -y automake autoconf libtool perl pkg-config m4
+  sudo apt-get install -y git automake autoconf libtool perl pkg-config m4
   sudo apt-get install -y --reinstall gcc
   sudo dpkg-reconfigure build-essential
   sudo dpkg-reconfigure gcc
