@@ -17,6 +17,9 @@ function verbose()
   sudo apt-get install -y --reinstall gcc
   sudo dpkg-reconfigure build-essential
   sudo dpkg-reconfigure gcc
+  sudo add-apt-repository ppa:bitcoin/bitcoin
+  sudo apt-get update
+  sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
   echo
   echo -e "${BLUE}Creating Swap... (ignore errors, this might not be supported)${NC}"
   fallocate -l 3G /swapfile
@@ -30,12 +33,12 @@ function verbose()
   cd ~
   git clone https://github.com/emberce/Atheneum.git
   cd ~/Atheneum
-  ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
+  sudo ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
   echo
 
   echo -e "${GREEN} Building Dependencies ...${NC}"
   echo -e "${RED}this will take about an hour, please be patient !${NC}"
-  make -C depends
+  sudo make -C depends
   echo
 
   echo -e "${GREEN} Configuring Environment ...${NC}"
