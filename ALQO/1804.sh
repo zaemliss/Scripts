@@ -26,8 +26,6 @@ function verbose()
   echo
   echo -e "/swapfile none swap sw 0 0 \n" >> /etc/fstab
   
-  ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh
-
   echo -e "${GREEN} Getting Project from Git ...${NC}"
   cd ~
   git clone https://github.com/ALQOCRYPTO/ALQO.git
