@@ -47,10 +47,10 @@ echo
 echo -ne " "
 for i in `seq 1 25`;
     do
-        echo -ne "\r${GREEN}|."
+        echo -ne "\r${RED}|.${GREEN}"
         eval $(echo -ne printf '"#%0.s"' {1..$i})
-        eval $(echo -ne printf '".%0.s"' {$i..25})
-        echo -ne "|${NC}"
+        eval $(echo -ne printf '".%0.s"' {$i..24})
+        echo -ne "${RED}.|${NC}"
         sleep 1
     done
     echo
