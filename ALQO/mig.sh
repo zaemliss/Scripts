@@ -47,12 +47,14 @@ echo
 echo -ne " "
 for i in `seq 1 25`;
     do
-        echo -ne "\r${RED}|.${GREEN}"
-        eval $(echo -ne printf '"#%0.s"' {1..$i})
-        eval $(echo -ne printf '".%0.s"' {$i..25})
-        echo -ne "${RED}.|${NC}"
+        f=$(($i - 1))
+        echo -ne "\r${RED}▌•${GREEN}"
+        eval $(echo -ne printf '"█%0.s"' {1..$i})
+        if [ $i -lt 25 ]; then eval $(echo -ne printf '"░%0.s"' {$f..23}); fi
+        echo -ne "${RED}•▐${NC}"
         sleep 1
     done
     echo
-    echo -e "${YELLOW}  Retrieving new data...${NC}"
+    echo -ne "${YELLOW}  Retrieving new data...${NC}\r"
 done
+
