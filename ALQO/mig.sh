@@ -7,7 +7,7 @@ BLUE='\033[1;36m'
 NC='\033[0m'
 
 clear
-sudo apt install -y bc > /dev/null 2>&1
+sudo apt install -y bc jq > /dev/null 2>&1
 echo "getting list..."
 
 while [ 1 ]; do
@@ -20,6 +20,8 @@ total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
 apiblockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
 logresult=$(tail -n 8 ./.alqo/debug.log)
+bestblock=$(./ALQO/alqo-cli getblockchaininfo | jq .bestblockhash | tr -d '"')
+supply=$(./ALQO/alqo-cli getblock $bestblock | jq .moneysupply)
 
 clear
 echo
