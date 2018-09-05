@@ -49,7 +49,7 @@ for i in `seq 1 25`;
     do
         echo -ne "\r${GREEN}"
         eval $(echo -ne printf '"#%0.s"' {1..$i})
-        eval $(echo -ne printf '".%0.s"' {$i..24})
+        eval $(echo -ne printf '".%0.s"' {$i..25})
         echo -ne "|${NC}"
         sleep 1
     done
