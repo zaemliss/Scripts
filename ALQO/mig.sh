@@ -40,13 +40,17 @@ echo
 echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
 echo
 echo -e "${YELLOW}Log File:${NC}"
+echo -e "${YELLOW}==========================================================================="
 echo -e "${BLUE}$logresult${NC}"
+echo -e "${YELLOW}==========================================================================="
 echo
-echo -e "${BLUE} ========================="
 echo -ne " "
 for i in `seq 1 25`;
     do
-        echo -ne "${GREEN}#${NC}"
+        echo -ne "\r${GREEN}"
+        eval $(echo -ne printf '"#%0.s"' {1..$i})
+        eval $(echo -ne printf '".%0.s"' {$i..24})
+        echo -ne "|${NC}"
         sleep 1
     done
     echo
