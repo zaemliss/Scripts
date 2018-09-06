@@ -6,6 +6,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[1;36m'
 NC='\033[0m'
 
+printf '\e[48;5;0m'
 clear
 sudo apt install -y bc jq > /dev/null 2>&1
 echo "getting list..."
