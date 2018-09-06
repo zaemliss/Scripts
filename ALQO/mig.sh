@@ -25,6 +25,7 @@ supply=$(./ALQO/alqo-cli getblock $bestblock | jq .moneysupply)
 supply=$(echo ${supply%.*})
 lockedcoins=$((updated * 10000))
 lockedpercent=$(bc <<< "scale = 2; $lockedcoins / $supply * 100")
+lockedpercent=${lockedpercent::-3}
 
 clear
 echo
