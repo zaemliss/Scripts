@@ -18,6 +18,7 @@ old=$(awk -F"70716" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 ancient=$(awk -F"70715" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 total=$(awk -F"version" '{print NF-1}' <<< "${nodes}" | grep -E 1 -c)
 percent=$(bc <<< "scale = 4;$updated / $total * 100")
+percent=${percent::-5}
 apiblockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
 logresult=$(tail -n 8 ./.alqo/debug.log)
 bestblock=$(./ALQO/alqo-cli getblockchaininfo | jq .bestblockhash | tr -d '"')
