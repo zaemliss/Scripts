@@ -22,12 +22,16 @@ apiblockheight=$(curl -s https://explorer.alqo.org/api/blockcount)
 logresult=$(tail -n 8 ./.alqo/debug.log)
 bestblock=$(./ALQO/alqo-cli getblockchaininfo | jq .bestblockhash | tr -d '"')
 supply=$(./ALQO/alqo-cli getblock $bestblock | jq .moneysupply)
+supply=$(echo ${supply%.*})
+lockedcoins=$((updated * 10000))
+lockedpercent=$(bc <<< "scale = 2; $lockedcoins / $supply * 100")
 
 clear
 echo
 echo -e "${BLUE} ALQO Masternode Migration monitoring script.${NC}"
 echo
 echo -e "${YELLOW} $updated ${BLUE}Masternodes on protocol ${GREEN}70717 ${BLUE}out of ${YELLOW}$total ${BLUE}[${RED}$percent %${BLUE}]${NC}"
+echo -e "${YELLOW} $lockedcoins ${BLUE}coins locked out of ${GREEN}$supply ${BLUE}in circulation ${BLUE}[${RED}$lockedpercent %${BLUE}]${NC}"
 echo
 echo -e "${BLUE} Masternodes on protocol ${RED}70716 : ${YELLOW}$old${NC}"
 echo -e "${BLUE} Masternodes on protocol ${RED}70715 : ${YELLOW}$ancient${NC}"
@@ -39,12 +43,12 @@ else
 fi
 echo -e "${BLUE} Local wallet Block Height : ${YELLOW}$curblocks${NC}"
 echo
-echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
-echo
 echo -e "${YELLOW}Log File:${NC}"
 echo -e "${YELLOW}==========================================================================="
 echo -e "${BLUE}$logresult${NC}"
 echo -e "${YELLOW}==========================================================================="
+echo
+echo -e "${GREEN} Press CTRL-C to exit. Updated every 25 seconds.${NC}"
 echo
 echo -ne " "
 for i in `seq 1 25`;
@@ -56,6 +60,7 @@ for i in `seq 1 25`;
         echo -ne "${RED}•▐${NC}"
         sleep 1
     done
+
     echo
     echo -ne "${YELLOW}  Retrieving new data...${NC}\r"
 done
