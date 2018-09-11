@@ -53,23 +53,21 @@ function verbose()
   cp ~/ALQO/src/alqod ~/ALQO
   cp ~/ALQO/src/alqo-cli ~/ALQO
   cp ~/ALQO/src/qt/alqo-qt ~/ALQO
+  echo
+  echo -e "${YELLOW} Done! Project compilation complete. "
+  echo -e " If you don't find the binaries in the ALQO directory, start this over and choose Verbose to see what is generating errors.${NC}"
 }
 
-function silent()
+function verbose()
 {
   echo
-  echo -e "${YELLOW} Installing dependencies ..."
-  echo -ne "${GREEN}#${NC}"
+  echo -e "${YELLOW} Installing dependencies ...${NC}"
+  echo
   sudo apt-get update -y > /dev/null 2>&1
-  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y --reinstall build-essential > /dev/null 2>&1
-  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y automake autoconf libtool perl pkg-config m4 > /dev/null 2>&1
-  echo -ne "${GREEN}#${NC}"
   sudo apt-get install -y --reinstall gcc > /dev/null 2>&1
-  echo -ne "${GREEN}#${NC}"
   sudo dpkg-reconfigure build-essential > /dev/null 2>&1
-  echo -ne "${GREEN}#${NC}"
   sudo dpkg-reconfigure gcc > /dev/null 2>&1
   echo
   echo -e "${BLUE}Creating Swap... (ignore errors, this might not be supported)${NC}"
@@ -81,12 +79,10 @@ function silent()
   echo -e "/swapfile none swap sw 0 0 \n" >> /etc/fstab > /dev/null 2>&1
   
   echo -e "${GREEN} Getting Project from Git ...${NC}"
-  cd ~
+  cd ~ > /dev/null 2>&1
   git clone https://github.com/ALQOCRYPTO/ALQO.git > /dev/null 2>&1
-  echo -ne "${YELLOW}#${NC}"
-  cd ~/ALQO
+  cd ~/ALQO > /dev/null 2>&1
   ACLOCAL_PATH=/usr/share/aclocal ./autogen.sh > /dev/null 2>&1
-  echo -ne "${YELLOW}#${NC}"
   echo
 
   echo -e "${GREEN} Building Dependencies ...${NC}"
@@ -106,12 +102,12 @@ function silent()
   echo
 
   echo -e "${BLUE} Copying Binaries to ~/ALQO ...${NC}"
-  echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/alqod ~/ALQO > /dev/null 2>&1
-  echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/alqo-cli ~/ALQO > /dev/null 2>&1
-  echo -ne "${YELLOW}#${NC}"
   cp ~/ALQO/src/qt/alqo-qt ~/ALQO > /dev/null 2>&1
+  echo
+  echo -e "${YELLOW} Done! Project compilation complete. "
+  echo -e " If you don't find the binaries in the ALQO directory, start this over and choose Verbose to see what is generating errors.${NC}"
 }
 
 function start()
