@@ -58,7 +58,7 @@ function verbose()
   echo -e " If you don't find the binaries in the ALQO directory, start this over and choose Verbose to see what is generating errors.${NC}"
 }
 
-function verbose()
+function silent()
 {
   echo
   echo -e "${YELLOW} Installing dependencies ...${NC}"
